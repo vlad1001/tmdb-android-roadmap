@@ -5,5 +5,5 @@ plugins {
 }
 
 dependencies{
-    implementation(project(MODEL))
+    api(project(MODEL))
 }

@@ -9,19 +9,21 @@ import com.example.moviestmdb.core.util.safeApiCall
 import javax.inject.Inject
 
 
-class MoviesRemoteDataSource @Inject constructor(private val moviesService : MovieService) {
+class MoviesRemoteDataSource @Inject constructor(
+    private val moviesService: MovieService
+) {
 
-    suspend fun getNowPlayingMovies(page: Int) : Result<MovieResponse> {
-        return safeApiCall{
+    suspend fun getNowPlayingMovies(page: Int): Result<MovieResponse> {
+        return safeApiCall {
             moviesService
-            .getNowPlaying(page)
-            .executeWithRetry()
-            .toResult()
+                .getNowPlaying(page)
+                .executeWithRetry()
+                .toResult()
         }
     }
 
-    suspend fun getPopularMovies(page: Int) : Result<MovieResponse> {
-        return safeApiCall{
+    suspend fun getPopularMovies(page: Int): Result<MovieResponse> {
+        return safeApiCall {
             moviesService
                 .getPopular(page)
                 .executeWithRetry()
@@ -29,8 +31,8 @@ class MoviesRemoteDataSource @Inject constructor(private val moviesService : Mov
         }
     }
 
-    suspend fun getUpcoming(page: Int) : Result<MovieResponse> {
-        return safeApiCall{
+    suspend fun getUpcoming(page: Int): Result<MovieResponse> {
+        return safeApiCall {
             moviesService
                 .getUpcoming(page)
                 .executeWithRetry()
@@ -38,8 +40,8 @@ class MoviesRemoteDataSource @Inject constructor(private val moviesService : Mov
         }
     }
 
-    suspend fun getTopRated(page: Int) : Result<MovieResponse> {
-        return safeApiCall{
+    suspend fun getTopRated(page: Int): Result<MovieResponse> {
+        return safeApiCall {
             moviesService
                 .getTopRated(page)
                 .executeWithRetry()
