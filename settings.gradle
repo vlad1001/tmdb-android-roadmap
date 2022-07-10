@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MoviesTmdb"
+include ':app'
+include ':core'
+include ':core-ui'
+include ':domain'
+include ':model'
+include ':ui-login'
+include ':ui-movies'
+include ':ui-people'
+include ':ui-tvshows'
