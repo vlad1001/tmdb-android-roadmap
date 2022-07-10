@@ -1,8 +1,7 @@
-package com.example.moviestmdb.core.network
+package com.example.moviestmdb.core.di
 
 import com.example.moviestmdb.core.BuildConfig
 import com.example.moviestmdb.core.constants.Constants
-import com.example.moviestmdb.core.di.MovieInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +21,7 @@ class NetworkModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
+        .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Movie (
     @SerializedName("poster_path")
-    val path : String? = null,
+    val posterPath : String? = null,
     @SerializedName("adult")
     val isAdult : Boolean = false,
     @SerializedName("overview")

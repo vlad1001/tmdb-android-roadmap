@@ -1,13 +1,11 @@
-import tmdb.buildSrc.Modules.CORE
-import tmdb.buildSrc.Modules.CORE_UI
-import tmdb.buildSrc.Modules.DOMAIN
+import tmdb.buildSrc.Modules
 
 plugins {
     id("ui-library-plugin")
 }
 
 dependencies{
-    implementation(project(CORE))
-    implementation(project(DOMAIN))
-    implementation(project(CORE_UI))
+    implementation(project(Modules.CORE))
+    implementation(project(Modules.DOMAIN))
+    implementation(project(Modules.CORE_UI))
 }
