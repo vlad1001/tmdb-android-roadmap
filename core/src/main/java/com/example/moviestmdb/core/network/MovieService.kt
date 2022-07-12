@@ -1,4 +1,4 @@
-package com.example.moviestmdb.core.di
+package com.example.moviestmdb.core.network
 
 import android.graphics.pdf.PdfDocument
 import com.example.moviestmdb.MovieResponse

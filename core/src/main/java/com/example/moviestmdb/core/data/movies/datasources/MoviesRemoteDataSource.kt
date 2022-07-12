@@ -1,7 +1,7 @@
 package com.example.moviestmdb.core.data.movies.datasources
 
 import com.example.moviestmdb.MovieResponse
-import com.example.moviestmdb.core.di.MovieService
+import com.example.moviestmdb.core.network.MovieService
 import com.example.moviestmdb.core.extensions.executeWithRetry
 import com.example.moviestmdb.core.extensions.toResult
 import com.example.moviestmdb.core.result.Result

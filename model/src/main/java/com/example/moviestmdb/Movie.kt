@@ -14,7 +14,7 @@ data class Movie (
     @SerializedName("genre_ids")
     val genreList: List<Int> = listOf(),
     @SerializedName("id")
-    val id : Int? = 0,
+    val id : Int,
     @SerializedName("original_title")
     val originalTitle : String? = null,
     @SerializedName("original_language")

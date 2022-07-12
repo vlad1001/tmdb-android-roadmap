@@ -113,4 +113,10 @@ class MovieLobbyViewModel @Inject constructor(
                 )
         }
     }
+
+    fun clearMessage(id: Long) {
+        viewModelScope.launch {
+            uiMessageManager.clearMessage(id)
+        }
+    }
 }
