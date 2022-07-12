@@ -16,7 +16,7 @@ class MoviesRepository @Inject constructor(
             emit(remote.getPopularMovies(page))
         }
 
-    suspend fun savePopularMovies(page: Int, movies: List<Movie>) {
+    fun savePopularMovies(page: Int, movies: List<Movie>) {
         local.popularStore.insert(page, movies)
     }
 
@@ -27,6 +27,10 @@ class MoviesRepository @Inject constructor(
             emit(remote.getNowPlayingMovies(page))
         }
 
+    fun saveNowPlayingMovies(page: Int, movies: List<Movie>) {
+        local.nowPlayingStore.insert(page, movies)
+    }
+
     fun observeNowPlayingMovies() = local.nowPlayingStore.observeEnteries()
 
     suspend fun getTopRatedMovies(page: Int) =
@@ -34,12 +38,20 @@ class MoviesRepository @Inject constructor(
             emit(remote.getTopRated(page))
         }
 
+    fun saveTopRatedMovies(page: Int, movies: List<Movie>) {
+        local.topRatedStore.insert(page, movies)
+    }
+
     fun observeTopRatedMovies() = local.topRatedStore.observeEnteries()
 
     suspend fun getUpcomingMovies(page: Int) =
         flow {
             emit(remote.getUpcoming(page))
         }
+
+    fun saveUpcomingMovies(page: Int, movies: List<Movie>) {
+        local.upcomingStore.insert(page, movies)
+    }
 
     fun observeUpcomingMovies() = local.upcomingStore.observeEnteries()
 }

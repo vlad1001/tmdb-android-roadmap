@@ -5,7 +5,9 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MoviesStore @Inject constructor() {
     private val _movies = MutableSharedFlow<Map<Int, List<Movie>>>(replay = 1)
 
@@ -19,6 +21,7 @@ class MoviesStore @Inject constructor() {
             _movies.tryEmit(map)
         }
     }
+
     fun observeEnteries(): SharedFlow<Map<Int, List<Movie>>> = _movies.asSharedFlow()
 
     fun updatePage(page: Int, movies: List<Movie>) {
@@ -35,5 +38,11 @@ class MoviesStore @Inject constructor() {
 
     fun deleteAll() {
         _movies.resetReplayCache()
+    }
+
+    fun getLastPage(): Int {
+        return _movies.replayCache.firstOrNull()?.let { map ->
+            map.maxOf { it.key }
+        } ?: 0
     }
 }

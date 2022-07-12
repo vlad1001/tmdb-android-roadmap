@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import com.example.moviestmdb.core.extensions.launchAndRepeatWithViewLifecycle
 import com.example.moviestmdb.ui_movies.databinding.FragmentLobbyBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MoviesLobbyFragment: Fragment() {
@@ -30,7 +32,21 @@ class MoviesLobbyFragment: Fragment() {
 
 
         launchAndRepeatWithViewLifecycle {
-            viewModel.loadMoview()
+            viewModel.refresh()
+        }
+
+        launchAndRepeatWithViewLifecycle {
+            viewModel.state.collect { uiState ->
+                Timber.i("### uiStae: ${uiState.refreshing}")
+
+                if(uiState.refreshing) {
+                    //loading all
+                }
+
+
+
+            }
+
         }
 
     }
