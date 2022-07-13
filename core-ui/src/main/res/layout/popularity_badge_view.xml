@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="78%"
         android:textAppearance="?textAppearanceCaption"
-        android:textColor="@color/white"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="@+id/progressBar"
         app:layout_constraintStart_toStartOf="@+id/progressBar"

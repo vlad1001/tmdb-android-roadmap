@@ -44,12 +44,14 @@ class MoviesLobbyFragment : Fragment() {
 
         initPopularAdapter()
 
-        launchAndRepeatWithViewLifecycle {
+        binding.swipeRefresh.setOnRefreshListener {
             viewModel.refresh()
         }
 
         launchAndRepeatWithViewLifecycle {
             viewModel.state.collect { uiState ->
+
+                binding.swipeRefresh.isRefreshing = uiState.refreshing
 
                 uiState.message?.let { message ->
                     Snackbar.make(requireView(), message.message, Snackbar.LENGTH_LONG)

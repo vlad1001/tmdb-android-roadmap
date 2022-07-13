@@ -16,6 +16,7 @@ import com.example.moviestmdb.domain.observers.ObservePopularMovies
 import com.example.moviestmdb.domain.observers.ObserveTopRatedMovies
 import com.example.moviestmdb.domain.observers.ObserveUpcomingMovies
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -48,6 +49,8 @@ class MovieLobbyViewModel @Inject constructor(
         observeUpcomingMovies(ObserveUpcomingMovies.Params(1))
         observeNowPlayingMovies(ObserveNowPlayingMovies.Params(1))
         observeTopRatedMovies(ObserveTopRatedMovies.Params(1))
+
+        refresh()
     }
 
     val state: StateFlow<LobbyViewState> = combine(
