@@ -1,6 +1,6 @@
 package com.example.moviestmdb.core.di
 
-import com.example.moviestmdb.core.constants.Constants
+import com.example.moviestmdb.core.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -9,7 +9,7 @@ class MovieInterceptor : Interceptor {
         val request = chain.request()
         val updatedUrl = request.url.
             newBuilder()
-            .addQueryParameter("api_key", Constants.API_KEY)
+            .addQueryParameter("api_key", BuildConfig.API_KEY)
             .build()
 
         val updatedRequest = request.newBuilder().url(updatedUrl).build()
