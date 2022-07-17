@@ -1,16 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.MoviesTmdb" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="Theme.Tmdb" parent="Theme.Tmdb.Dark" />
+
+    <style name="Theme.Tmdb.Dark" parent="Base.Theme.Tmdb">
+        <!--Color-->
+        <item name="colorPrimary">@color/tmdb_blue_200</item>
+        <item name="colorPrimaryVariant">@color/tmdb_blue_300</item>
+        <item name="colorSecondary">@color/tmdb_orange_300</item>
+        <item name="colorSecondaryVariant">@color/tmdb_orange_300</item>
+
+        <item name="android:colorBackground">@color/tmdb_black_900</item>
+        <item name="colorSurface">@color/tmdb_black_800</item>
+        <item name="colorPrimarySurfaceVariant">?attr/colorSurface</item>
+        <item name="colorError">@color/tmdb_red_200</item>
+
+        <item name="colorOnPrimary">@color/tmdb_black_900</item>
+        <item name="colorOnSecondary">@color/tmdb_black_900</item>
+        <item name="colorOnBackground">@color/tmdb_white_50</item>
+        <item name="colorOnSurface">@color/tmdb_white_50</item>
+        <item name="colorOnError">@color/tmdb_black_900</item>
+
+        <item name="scrimBackground">@color/tmdb_black_900_alpha_087</item>
+        <item name="android:statusBarColor">@color/tmdb_black_900_alpha_060</item>
+
+        <item name="elevationOverlayEnabled">true</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
     </style>
 </resources>

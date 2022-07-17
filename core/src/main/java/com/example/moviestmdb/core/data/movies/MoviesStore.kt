@@ -45,4 +45,6 @@ class MoviesStore @Inject constructor() {
             map.maxOf { it.key }
         } ?: 0
     }
+
+    fun getMoviesForPage(page:Int) = _movies.replayCache.firstOrNull()?.let { it[page] }
 }
