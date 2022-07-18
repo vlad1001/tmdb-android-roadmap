@@ -1,11 +1,7 @@
 package com.example.moviestmdb.domain.observers
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
+import androidx.paging.*
 import com.example.moviestmdb.Movie
-import com.example.moviestmdb.domain.InvalidatingPagingSourceFactory
 import com.example.moviestmdb.core.data.movies.MoviesStore
 import com.example.moviestmdb.core.di.Popular
 import com.example.moviestmdb.domain.MoviesPagingSource

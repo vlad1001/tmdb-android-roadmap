@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.moviestmdb.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,5 +27,9 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(binding.navHostContainer.id) as NavHostFragment
 
         navController = navHostFragment.navController
+
+        binding.bottomNavigationView.apply {
+            setupWithNavController(navController)
+        }
     }
 }

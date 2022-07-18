@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/movies_graph"
+        android:enabled="true"
+        android:icon="@drawable/ic_movie"
+        android:title="Movies" />
+    <item
+        android:id="@+id/tvshows_graph"
+        android:enabled="true"
+        android:icon="@drawable/ic_live_tv"
+        android:title="TV" />
+    <item
+        android:id="@+id/people_graph"
+        android:enabled="true"
+        android:icon="@drawable/ic_people"
+        android:title="People" />
+
+</menu>
