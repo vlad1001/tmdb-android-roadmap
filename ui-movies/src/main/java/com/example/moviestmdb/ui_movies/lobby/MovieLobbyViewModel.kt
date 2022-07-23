@@ -37,7 +37,6 @@ class MovieLobbyViewModel @Inject constructor(
     private val dispatchers: AppCoroutineDispatchers,
 ) : ViewModel() {
 
-
     private val popularLoadingState = ObservableLoadingCounter()
     private val topRatedLoadingState = ObservableLoadingCounter()
     private val upcomingLoadingState = ObservableLoadingCounter()

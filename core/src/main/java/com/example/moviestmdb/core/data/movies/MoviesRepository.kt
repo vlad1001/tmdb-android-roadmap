@@ -1,8 +1,12 @@
 package com.example.moviestmdb.core.data.movies
 
+import com.example.moviestmdb.Cast
 import com.example.moviestmdb.Movie
+import com.example.moviestmdb.MovieCreditsResponse
+import com.example.moviestmdb.MovieResponse
 import com.example.moviestmdb.core.data.movies.datasources.MoviesLocalDataSource
 import com.example.moviestmdb.core.data.movies.datasources.MoviesRemoteDataSource
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -54,4 +58,22 @@ class MoviesRepository @Inject constructor(
     }
 
     fun observeUpcomingMovies() = local.upcomingStore.observeEnteries()
+
+    suspend fun getMovieCredits(movieId: Int) =
+        flow {
+            emit(remote.getMovieCredits(movieId))
+        }
+
+    fun saveMovieCasts(movieId: Int,  casts: List<Cast>) {
+        local.castsStore.insert(movieId, casts)
+    }
+
+    suspend fun getMovieRecommendations(movieId: Int) =
+        flow {
+            emit(remote.getMovieRecommendations(movieId))
+        }
+
+    fun saveMovieRecommendations(movieId: Int, movies: List<Movie>) {
+        local.recommendationsStore.insert(movieId.toInt(), movies)
+    }
 }

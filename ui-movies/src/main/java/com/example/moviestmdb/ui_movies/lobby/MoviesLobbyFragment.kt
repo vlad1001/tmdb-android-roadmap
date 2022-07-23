@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -84,9 +85,9 @@ class MoviesLobbyFragment : Fragment() {
     }
 
 
-
     private val onMovieClick: (Int) -> Unit = { movieId ->
-        Timber.i("$movieId")
+        val args = bundleOf("arg_movie_id" to movieId)
+        findNavController().navigate(R.id.navigation_movie_details_fragment, args)
     }
 
     private fun initPopularAdapter() {
@@ -99,10 +100,13 @@ class MoviesLobbyFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
             val itemSpacing =
-                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal).toInt()
-            addItemDecoration(SpaceItemDecoration(
-                itemSpacing, -itemSpacing
-            ))
+                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal)
+                    .toInt()
+            addItemDecoration(
+                SpaceItemDecoration(
+                    itemSpacing, -itemSpacing
+                )
+            )
         }
 
         binding.popularMoviesView.title.text = "Popular Movies"
@@ -121,10 +125,13 @@ class MoviesLobbyFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
             val itemSpacing =
-                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal).toInt()
-            addItemDecoration(SpaceItemDecoration(
-                itemSpacing, -itemSpacing
-            ))
+                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal)
+                    .toInt()
+            addItemDecoration(
+                SpaceItemDecoration(
+                    itemSpacing, -itemSpacing
+                )
+            )
         }
 
         binding.nowPlayingMoviesView.title.text = "Now Playing Movies"
@@ -143,10 +150,13 @@ class MoviesLobbyFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
             val itemSpacing =
-                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal).toInt()
-            addItemDecoration(SpaceItemDecoration(
-                itemSpacing, -itemSpacing
-            ))
+                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal)
+                    .toInt()
+            addItemDecoration(
+                SpaceItemDecoration(
+                    itemSpacing, -itemSpacing
+                )
+            )
         }
 
         binding.topRatedMoviesView.title.text = "Top Rated Movies"
@@ -165,10 +175,13 @@ class MoviesLobbyFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
             val itemSpacing =
-                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal).toInt()
-            addItemDecoration(SpaceItemDecoration(
-                itemSpacing, -itemSpacing
-            ))
+                resources.getDimension(com.example.moviestmdb.core_ui.R.dimen.spacing_normal)
+                    .toInt()
+            addItemDecoration(
+                SpaceItemDecoration(
+                    itemSpacing, -itemSpacing
+                )
+            )
         }
 
         binding.upcomingMoviesView.title.text = "Upcoming Movies"

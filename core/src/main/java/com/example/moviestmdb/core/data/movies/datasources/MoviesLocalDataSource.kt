@@ -1,6 +1,8 @@
 package com.example.moviestmdb.core.data.movies.datasources
 
+import com.example.moviestmdb.core.data.movies.CastsStore
 import com.example.moviestmdb.core.data.movies.MoviesStore
+import com.example.moviestmdb.core.data.movies.RecommendationsStore
 import com.example.moviestmdb.core.di.NowPlaying
 import com.example.moviestmdb.core.di.Popular
 import com.example.moviestmdb.core.di.TopRated
@@ -12,6 +14,8 @@ class MoviesLocalDataSource @Inject constructor(
     @TopRated val topRatedStore: MoviesStore,
     @Upcoming val upcomingStore: MoviesStore,
     @NowPlaying val nowPlayingStore: MoviesStore,
+    val recommendationsStore: RecommendationsStore,
+    val castsStore: CastsStore
 ) {
 
 

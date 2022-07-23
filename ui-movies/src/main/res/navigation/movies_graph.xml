@@ -12,5 +12,9 @@
         android:id="@+id/navigation_popular_movies_fragment"
         android:name="com.example.moviestmdb.ui_movies.popular.PopularMoviesFragment"
         android:label="PopularMoviesFragment" />
+    <fragment
+        android:id="@+id/navigation_movie_details_fragment"
+        android:name="com.example.moviestmdb.ui_movies.moviedetails.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" />
 
 </navigation>

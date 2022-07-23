@@ -4,6 +4,7 @@ import com.example.moviestmdb.Movie
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -47,4 +48,6 @@ class MoviesStore @Inject constructor() {
     }
 
     fun getMoviesForPage(page:Int) = _movies.replayCache.firstOrNull()?.let { it[page] }
+
+    fun observeMovies() = _movies.map { it.values.flatten() }
 }
