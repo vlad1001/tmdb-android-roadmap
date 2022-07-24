@@ -6,4 +6,7 @@ plugins {
 
 dependencies{
     api(project(MODEL))
+
+    implementation(platform(tmdb.buildSrc.Libs.Firebase.bom))
+    implementation(tmdb.buildSrc.Libs.Firebase.auth)
 }

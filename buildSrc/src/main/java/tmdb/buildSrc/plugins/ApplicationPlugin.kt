@@ -28,6 +28,7 @@ class ApplicationPlugin : Plugin<Project> {
             apply("kotlin-parcelize")
             apply("kotlin-kapt")
             apply("dagger.hilt.android.plugin")
+            apply(Libs.Firebase.googleServices)
         }
     }
 

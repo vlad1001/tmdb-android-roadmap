@@ -31,5 +31,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.apply {
             setupWithNavController(navController)
         }
+
+
+        navController.navigate(com.example.moviestmdb.ui_login.R.id.login_graph)
     }
 }
