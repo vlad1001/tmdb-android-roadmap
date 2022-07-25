@@ -8,4 +8,7 @@ dependencies{
     implementation(project(Modules.CORE))
     implementation(project(Modules.DOMAIN))
     implementation(project(Modules.CORE_UI))
+
+    implementation(platform(tmdb.buildSrc.Libs.Firebase.bom))
+    implementation(tmdb.buildSrc.Libs.Firebase.auth)
 }
