@@ -8,7 +8,6 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import timber.log.Timber
 import javax.inject.Inject
-import com.example.moviestmdb.core.result.Result
 import javax.inject.Singleton
 
 @Singleton

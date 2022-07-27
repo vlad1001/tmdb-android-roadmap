@@ -26,11 +26,11 @@ data class Movie (
     @SerializedName("popularity")
     val popularity : Double? = null,
     @SerializedName("vote_count")
-    val voteCount : Int? = null,
+    val voteCount : Int,
     @SerializedName("video")
     val isVideo : Boolean = false,
     @SerializedName("vote_average")
-    val voteAverage : Double? = null,
+    val voteAverage : Double,
 ) {
     val popularityPrecentage : Int get() = voteAverage?.let { (it * 10).toInt() } ?: 0
 }
