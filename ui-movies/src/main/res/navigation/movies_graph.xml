@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/movies_graph"
-    app:startDestination="@id/navigation_lobby_fragment">
+    app:startDestination="@id/navigation_movies_lobby_fragment">
 
     <fragment
-        android:id="@+id/navigation_lobby_fragment"
+        android:id="@+id/navigation_movies_lobby_fragment"
         android:name="com.example.moviestmdb.ui_movies.lobby.MoviesLobbyFragment"
         android:label="MoviesLobbyFragment" />
     <fragment

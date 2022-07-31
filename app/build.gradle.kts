@@ -14,6 +14,7 @@ dependencies {
     implementation(project(Modules.UI_TVSHOWS))
     implementation(project(Modules.UI_MOVIES))
     implementation(project(Modules.UI_LOGIN))
+    implementation(project(Modules.UI_SETTINGS))
 
     implementation(platform(Libs.Firebase.bom))
     implementation(Libs.Firebase.auth)

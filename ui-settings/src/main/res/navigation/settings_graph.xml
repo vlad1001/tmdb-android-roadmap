@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_graph"
+    app:startDestination="@id/navigation_settings_fragment">
+
+    <fragment
+        android:id="@+id/navigation_settings_fragment"
+        android:name="com.example.moviestmdb.ui_settings.ui.SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

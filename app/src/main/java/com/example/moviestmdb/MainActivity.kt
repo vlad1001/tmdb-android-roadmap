@@ -1,9 +1,11 @@
 package com.example.moviestmdb
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.moviestmdb.core.data.login.FirebaseAuthStateUserDataSource
@@ -25,6 +27,15 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var firebaseAuthStateUserDataSource: FirebaseAuthStateUserDataSource
 
+
+    private val TOP_LEVEL_DESTINATIONS = setOf(
+        com.example.moviestmdb.ui_movies.R.id.navigation_movies_lobby_fragment,
+        com.example.moviestmdb.ui_tvshows.R.id.navigation_tvshows_lobby_fragment,
+        com.example.moviestmdb.ui_people.R.id.navigation_peoples_lobby_fragment,
+        com.example.moviestmdb.ui_settings.R.id.navigation_settings_fragment,
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,6 +51,14 @@ class MainActivity : AppCompatActivity() {
             setupWithNavController(navController)
         }
 
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (TOP_LEVEL_DESTINATIONS.contains(destination.id)) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
 
         lifecycleScope.launchWhenStarted {
             firebaseAuthStateUserDataSource.getBasicUserInfo().collectLatest { result ->

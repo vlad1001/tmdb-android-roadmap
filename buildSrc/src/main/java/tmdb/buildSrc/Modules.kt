@@ -9,4 +9,5 @@ object Modules {
     const val UI_MOVIES = ":ui-movies"
     const val UI_TVSHOWS = ":ui-tvshows"
     const val UI_PEOPLE = ":ui-people"
+    const val UI_SETTINGS = ":ui-settings"
 }

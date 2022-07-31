@@ -8,5 +8,6 @@
     <include app:graph="@navigation/tvshows_graph" />
     <include app:graph="@navigation/people_graph" />
     <include app:graph="@navigation/login_graph" />
+    <include app:graph="@navigation/settings_graph" />
 
 </navigation>

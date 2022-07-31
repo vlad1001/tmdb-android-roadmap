@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_people"
         android:title="People" />
 
+    <item
+        android:id="@+id/settings_graph"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings" />
+
 </menu>
