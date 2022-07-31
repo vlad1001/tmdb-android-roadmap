@@ -2,17 +2,16 @@ package com.example.moviestmdb.core.data.movies
 
 import com.example.moviestmdb.Cast
 import com.example.moviestmdb.Movie
-import com.example.moviestmdb.MovieCreditsResponse
-import com.example.moviestmdb.MovieResponse
+import com.example.moviestmdb.core.data.movies.datasources.FirebaseDatabaseDataSource
 import com.example.moviestmdb.core.data.movies.datasources.MoviesLocalDataSource
 import com.example.moviestmdb.core.data.movies.datasources.MoviesRemoteDataSource
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class MoviesRepository @Inject constructor(
     private val remote: MoviesRemoteDataSource,
-    private val local: MoviesLocalDataSource
+    private val local: MoviesLocalDataSource,
+    private val firebaseDatabaseDataSource: FirebaseDatabaseDataSource
 ) {
 
     suspend fun getPopularMovies(page: Int) =
@@ -64,7 +63,7 @@ class MoviesRepository @Inject constructor(
             emit(remote.getMovieCredits(movieId))
         }
 
-    fun saveMovieCasts(movieId: Int,  casts: List<Cast>) {
+    fun saveMovieCasts(movieId: Int, casts: List<Cast>) {
         local.castsStore.insert(movieId, casts)
     }
 
@@ -76,4 +75,14 @@ class MoviesRepository @Inject constructor(
     fun saveMovieRecommendations(movieId: Int, movies: List<Movie>) {
         local.recommendationsStore.insert(movieId.toInt(), movies)
     }
+
+    fun addToFavourites(uid: String, movieId: Int) {
+        firebaseDatabaseDataSource.addToFavourite(uid, movieId)
+    }
+
+    fun removeFromFavourite(uid: String, movieId: Int) {
+        firebaseDatabaseDataSource.removeFromFavourite(uid, movieId)
+    }
+
+    fun observeFavouriteMovies() = firebaseDatabaseDataSource.observeFavouriteMovies()
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.doOnNextLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.example.moviestmdb.core.TmdbImageManager
 import com.example.moviestmdb.core.extensions.launchAndRepeatWithViewLifecycle
 import com.example.moviestmdb.core_ui.util.SpaceItemDecoration
+import com.example.moviestmdb.ui_movies.R
 import com.example.moviestmdb.ui_movies.databinding.FragmentMovieDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,7 +43,7 @@ class MovieDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMovieDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -65,7 +67,6 @@ class MovieDetailsFragment : Fragment() {
         binding.overviewTitle.setOnClickListener {
             firebaseAuth.signOut()
         }
-
     }
 
     private fun bindUi(uiState: MovieDetailsViewState) {
@@ -100,7 +101,22 @@ class MovieDetailsFragment : Fragment() {
                         )
                         .into(binding.posterImage)
                 }
+
+                val isFavoriteMovie = uiState.favouriteMovies.contains(movie.id.toString())
+                val iconDrawable =
+                    if (isFavoriteMovie) com.example.moviestmdb.core_ui.R.drawable.ic_favorite
+                    else com.example.moviestmdb.core_ui.R.drawable.ic_favorite_border
+                binding.favoritesFab.setIconResource(iconDrawable)// = ContextCompat.getDrawable(requireContext(), iconDrawable)
+
+                binding.favoritesFab.setOnClickListener {
+                    if (isFavoriteMovie) {
+                        viewModel.removeFromFavorites()
+                    } else {
+                        viewModel.addToFavorites()
+                    }
+                }
             }
+
 
         }
 

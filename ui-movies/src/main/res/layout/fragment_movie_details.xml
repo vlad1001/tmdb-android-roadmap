@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -133,19 +134,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                tools:text="69%"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_content_mid"
                 app:layout_constraintStart_toEndOf="@+id/rating_icon"
-                app:layout_constraintTop_toBottomOf="@+id/rating_title" />
+                app:layout_constraintTop_toBottomOf="@+id/rating_title"
+                tools:text="69%" />
 
             <TextView
                 android:id="@+id/vote_count"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="1.7K votes"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_content_mid"
                 app:layout_constraintStart_toStartOf="@+id/vote_avrage"
-                app:layout_constraintTop_toBottomOf="@+id/vote_avrage" />
+                app:layout_constraintTop_toBottomOf="@+id/vote_avrage"
+                tools:text="1.7K votes" />
 
             <TextView
                 android:id="@+id/status_title"
@@ -162,10 +163,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                tools:text="Released"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintStart_toStartOf="@+id/guideline_content_mid"
-                app:layout_constraintTop_toBottomOf="@+id/status_title" />
+                app:layout_constraintTop_toBottomOf="@+id/status_title"
+                tools:text="Released" />
 
             <TextView
                 android:id="@+id/budget_title"
@@ -183,10 +184,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                tools:text="$200,000,000.00"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_content_mid"
                 app:layout_constraintStart_toStartOf="@+id/guideline_poster_end"
-                app:layout_constraintTop_toBottomOf="@+id/budget_title" />
+                app:layout_constraintTop_toBottomOf="@+id/budget_title"
+                tools:text="$200,000,000.00" />
 
             <TextView
                 android:id="@+id/revenue_title"
@@ -204,10 +205,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                tools:text="$400,000,000.00"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_content_mid"
                 app:layout_constraintStart_toStartOf="@+id/guideline_poster_end"
-                app:layout_constraintTop_toBottomOf="@+id/revenue_title" />
+                app:layout_constraintTop_toBottomOf="@+id/revenue_title"
+                tools:text="$400,000,000.00" />
 
             <TextView
                 android:id="@+id/overview_title"
@@ -225,10 +226,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                tools:text="Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald's growing legion of followers."
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintStart_toStartOf="@+id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/overview_title" />
+                app:layout_constraintTop_toBottomOf="@+id/overview_title"
+                tools:text="Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald's growing legion of followers." />
 
             <TextView
                 android:id="@+id/cast_title"
@@ -280,4 +281,14 @@
 
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/favorites_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:text="Favourites"
+        app:icon="@drawable/ic_favorite_border" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

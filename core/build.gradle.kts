@@ -9,4 +9,5 @@ dependencies{
 
     implementation(platform(tmdb.buildSrc.Libs.Firebase.bom))
     implementation(tmdb.buildSrc.Libs.Firebase.auth)
+    implementation(tmdb.buildSrc.Libs.Firebase.database)
 }

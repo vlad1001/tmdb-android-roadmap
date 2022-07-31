@@ -130,5 +130,6 @@ object Libs {
         const val bom = "com.google.firebase:firebase-bom:$version"
         const val auth = "com.google.firebase:firebase-auth-ktx"
         const val firestore = "com.google.firebase:firebase-firestore-ktx"
+        const val database = "com.google.firebase:firebase-database-ktx"
     }
 }

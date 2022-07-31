@@ -10,6 +10,7 @@ data class MovieDetailsViewState(
     val castsRefreshing: Boolean = false,
     val recommendetions: List<Movie> = emptyList(),
     val recommendetionsRefreshing: Boolean = false,
+    val favouriteMovies: Set<String> = emptySet(),
     val message: UiMessage? = null
 ) {
 
