@@ -14,7 +14,10 @@ import com.example.moviestmdb.core.TmdbImageManager
 import com.example.moviestmdb.core.extensions.launchAndRepeatWithViewLifecycle
 import com.example.moviestmdb.core_ui.R.dimen
 import com.example.moviestmdb.core_ui.util.SpaceItemDecoration
+import com.example.moviestmdb.ui_movies.R
 import com.example.moviestmdb.ui_movies.databinding.FragmentPopularMoviesBinding
+import com.example.moviestmdb.ui_movies.popular.vo.FilterChip
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
@@ -55,6 +58,24 @@ class PopularMoviesFragment: Fragment() {
                 pagingAdapter.submitData(pagingData)
             }
         }
+
+        launchAndRepeatWithViewLifecycle {
+            viewModel.filterChips.collect { chips ->
+                val list = mutableListOf<Chip>()
+                chips.forEach { chip ->
+                    val c = createChip(chip)
+                    c.setOnCheckedChangeListener { compoundButton, isChecked ->
+                        viewModel.toggleFilter(compoundButton.id, isChecked)
+                    }
+                    list.add(c)
+                }
+
+                binding.chipGroup.removeAllViews()
+                list.forEach {
+                    binding.chipGroup.addView(it)
+                }
+            }
+        }
     }
 
     private val movieClickListener : (Int) -> Unit = { movieId ->
@@ -80,4 +101,11 @@ class PopularMoviesFragment: Fragment() {
         }
     }
 
+
+    private fun createChip(filterChip: FilterChip): Chip {
+        val chip = LayoutInflater.from(binding.chipGroup.context).inflate(R.layout.item_filter_chip, null, false) as Chip
+        chip.id = filterChip.id
+        chip.text = filterChip.text
+        return chip
+    }
 }

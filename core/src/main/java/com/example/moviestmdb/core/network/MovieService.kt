@@ -1,6 +1,7 @@
 package com.example.moviestmdb.core.network
 
 import android.graphics.pdf.PdfDocument
+import com.example.moviestmdb.GenereResponse
 import com.example.moviestmdb.MovieCreditsResponse
 import com.example.moviestmdb.MovieResponse
 import retrofit2.Call
@@ -40,4 +41,7 @@ interface MovieService {
     fun getMovieRecommendations(
         @Path("movie_id") movieId: Int,
     ): Call<MovieResponse>
+
+    @GET("genre/movie/list")
+    fun getGenere(): Call<GenereResponse>
 }

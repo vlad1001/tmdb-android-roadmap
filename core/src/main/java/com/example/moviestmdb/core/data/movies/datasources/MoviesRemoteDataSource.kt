@@ -1,5 +1,6 @@
 package com.example.moviestmdb.core.data.movies.datasources
 
+import com.example.moviestmdb.GenereResponse
 import com.example.moviestmdb.MovieCreditsResponse
 import com.example.moviestmdb.MovieResponse
 import com.example.moviestmdb.core.network.MovieService
@@ -66,4 +67,11 @@ class MoviesRemoteDataSource @Inject constructor(
         }
     }
 
+    suspend fun getGenere(): Result<GenereResponse> {
+        return safeApiCall {
+            moviesService.getGenere()
+                .executeWithRetry()
+                .toResult()
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.moviestmdb.ui_movies.lobby
 
+import com.example.moviestmdb.Genere
 import com.example.moviestmdb.Movie
 import com.example.moviestmdb.core.util.UiMessage
 

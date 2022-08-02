@@ -1,13 +1,18 @@
 package com.example.moviestmdb.core.data.movies
 
 import com.example.moviestmdb.Cast
+import com.example.moviestmdb.Genere
+import com.example.moviestmdb.GenereResponse
 import com.example.moviestmdb.Movie
 import com.example.moviestmdb.core.data.movies.datasources.FirebaseDatabaseDataSource
 import com.example.moviestmdb.core.data.movies.datasources.MoviesLocalDataSource
 import com.example.moviestmdb.core.data.movies.datasources.MoviesRemoteDataSource
+import com.example.moviestmdb.core.result.Result
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MoviesRepository @Inject constructor(
     private val remote: MoviesRemoteDataSource,
     private val local: MoviesLocalDataSource,
@@ -85,4 +90,14 @@ class MoviesRepository @Inject constructor(
     }
 
     fun observeFavouriteMovies() = firebaseDatabaseDataSource.observeFavouriteMovies()
+
+    fun getGeneres() =
+        flow {
+            emit(remote.getGenere())
+        }
+
+    fun saveGeneres(generes: List<Genere>) = local.saveGeneres(generes)
+
+    fun observeGeneres() = local.observeGeneres()
+
 }

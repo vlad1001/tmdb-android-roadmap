@@ -67,4 +67,8 @@
         <item name="colorPrimary">@color/tmdb_red_400</item>
         <item name="colorOnSurface">@color/tmdb_black_900</item>
     </style>
+
+    <style name="ThemeOverlay.Tmdb.Chip.Filter" parent="">
+        <item name="colorPrimary">@color/tmdb_orange_400</item>
+    </style>
 </resources>

@@ -7,20 +7,16 @@ import com.example.moviestmdb.core.util.AppCoroutineDispatchers
 import com.example.moviestmdb.core.util.ObservableLoadingCounter
 import com.example.moviestmdb.core.util.UiMessageManager
 import com.example.moviestmdb.core.util.collectStatus
-import com.example.moviestmdb.domain.interactors.UpdateNowPlayingMovies
-import com.example.moviestmdb.domain.interactors.UpdatePopularMovies
-import com.example.moviestmdb.domain.interactors.UpdateTopRatedMovies
-import com.example.moviestmdb.domain.interactors.UpdateUpcomingMovies
-import com.example.moviestmdb.domain.observers.ObserveNowPlayingMovies
-import com.example.moviestmdb.domain.observers.ObservePopularMovies
-import com.example.moviestmdb.domain.observers.ObserveTopRatedMovies
-import com.example.moviestmdb.domain.observers.ObserveUpcomingMovies
+import com.example.moviestmdb.domain.interactors.*
+import com.example.moviestmdb.domain.observers.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -30,6 +26,7 @@ class MovieLobbyViewModel @Inject constructor(
     private val updateUpcomingMovies: UpdateUpcomingMovies,
     private val updateNowPlayingMovies: UpdateNowPlayingMovies,
     private val updateTopRatedMovies: UpdateTopRatedMovies,
+    private val updateGeneres: UpdateGeneres,
     observePopularMovies: ObservePopularMovies,
     observeUpcomingMovies: ObserveUpcomingMovies,
     observeNowPlayingMovies: ObserveNowPlayingMovies,
@@ -41,6 +38,7 @@ class MovieLobbyViewModel @Inject constructor(
     private val topRatedLoadingState = ObservableLoadingCounter()
     private val upcomingLoadingState = ObservableLoadingCounter()
     private val nowPlayingLoadingState = ObservableLoadingCounter()
+    private val generesLoadingState = ObservableLoadingCounter()
     private val uiMessageManager = UiMessageManager()
 
     init {
@@ -113,6 +111,12 @@ class MovieLobbyViewModel @Inject constructor(
                     topRatedLoadingState,
                     uiMessageManager
                 )
+        }
+
+        viewModelScope.launch(dispatchers.io) {
+            updateGeneres(Unit).collect {
+                Timber.i("### Genere: $it")
+            }
         }
     }
 

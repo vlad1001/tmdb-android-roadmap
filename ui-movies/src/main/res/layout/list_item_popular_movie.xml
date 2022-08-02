@@ -72,6 +72,26 @@
             app:layout_constraintStart_toStartOf="@+id/guideline_start_content"
             app:layout_constraintTop_toBottomOf="@+id/title"
             tools:text="1054 votes * Apr 5, 2022" />
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end_content"
+            app:layout_constraintStart_toEndOf="@+id/popularity_badge">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:singleLine="true">
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

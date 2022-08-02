@@ -32,5 +32,5 @@ data class Movie (
     @SerializedName("vote_average")
     val voteAverage : Double,
 ) {
-    val popularityPrecentage : Int get() = voteAverage?.let { (it * 10).toInt() } ?: 0
+    val popularityPrecentage : Int get() = voteAverage.let { (it * 10).toInt() }
 }
