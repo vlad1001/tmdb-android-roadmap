@@ -62,6 +62,7 @@ class UiLibraryPlugin : Plugin<Project> {
         dependencies {
             "implementation"(Libs.AndroidX.coreKtx)
             "implementation"(Libs.Google.material)
+            "implementation"(Libs.Google.flexbox)
 
             "implementation"(Libs.AndroidX.Lifecycle.viewmodel)
             "implementation"(Libs.AndroidX.Lifecycle.runtime)

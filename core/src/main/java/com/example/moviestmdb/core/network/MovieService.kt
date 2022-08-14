@@ -9,28 +9,29 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface MovieService {
 
     @GET("movie/upcoming")
     fun getUpcoming(
         @Query("page") page: Int
-    ) : Call<MovieResponse>
+    ): Call<MovieResponse>
 
     @GET("movie/top_rated")
     fun getTopRated(
         @Query("page") page: Int
-    ) : Call<MovieResponse>
+    ): Call<MovieResponse>
 
     @GET("movie/popular")
     fun getPopular(
         @Query("page") page: Int
-    ) : Call<MovieResponse>
+    ): Call<MovieResponse>
 
     @GET("movie/now_playing")
     fun getNowPlaying(
         @Query("page") page: Int
-    ) : Call<MovieResponse>
+    ): Call<MovieResponse>
 
     @GET("movie/{movie_id}/credits")
     fun getMovieCredits(
@@ -44,4 +45,10 @@ interface MovieService {
 
     @GET("genre/movie/list")
     fun getGenere(): Call<GenereResponse>
+
+    @GET("discover/movie")
+    fun discover(
+        @Query("page") page: Int,
+        @QueryMap options: Map<String, String> = emptyMap()
+    ): Call<MovieResponse>
 }

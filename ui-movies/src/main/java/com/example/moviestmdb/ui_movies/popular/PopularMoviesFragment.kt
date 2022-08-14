@@ -103,7 +103,8 @@ class PopularMoviesFragment: Fragment() {
 
 
     private fun createChip(filterChip: FilterChip): Chip {
-        val chip = LayoutInflater.from(binding.chipGroup.context).inflate(R.layout.item_filter_chip, null, false) as Chip
+        val chip = LayoutInflater.from(binding.chipGroup.context)
+            .inflate(R.layout.item_filter_chip, null, false) as Chip
         chip.id = filterChip.id
         chip.text = filterChip.text
         return chip

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="votes_slider_values">
+        <item>0.0</item>
+        <item>500.0</item>
+    </array>
+
+    <array name="runtime_slider_values">
+        <item>0.0</item>
+        <item>400.0</item>
+    </array>
+
+</resources>

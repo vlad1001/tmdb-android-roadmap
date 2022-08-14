@@ -8,6 +8,7 @@ import com.example.moviestmdb.core.extensions.executeWithRetry
 import com.example.moviestmdb.core.extensions.toResult
 import com.example.moviestmdb.core.result.Result
 import com.example.moviestmdb.core.util.safeApiCall
+import retrofit2.http.QueryMap
 import javax.inject.Inject
 
 
@@ -70,6 +71,14 @@ class MoviesRemoteDataSource @Inject constructor(
     suspend fun getGenere(): Result<GenereResponse> {
         return safeApiCall {
             moviesService.getGenere()
+                .executeWithRetry()
+                .toResult()
+        }
+    }
+
+    suspend fun discover(page: Int, options :Map<String, String> = emptyMap()): Result<MovieResponse> {
+        return safeApiCall {
+            moviesService.discover(page, options)
                 .executeWithRetry()
                 .toResult()
         }

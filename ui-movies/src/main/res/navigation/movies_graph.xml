@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movies_graph"
     app:startDestination="@id/navigation_movies_lobby_fragment">
 
     <fragment
         android:id="@+id/navigation_movies_lobby_fragment"
         android:name="com.example.moviestmdb.ui_movies.lobby.MoviesLobbyFragment"
-        android:label="MoviesLobbyFragment" />
+        android:label="MoviesLobbyFragment"
+        tools:layout="@layout/fragment_lobby" />
+
     <fragment
         android:id="@+id/navigation_popular_movies_fragment"
         android:name="com.example.moviestmdb.ui_movies.popular.PopularMoviesFragment"
-        android:label="PopularMoviesFragment" />
+        android:label="PopularMoviesFragment"
+        tools:layout="@layout/fragment_popular_movies" />
+
     <fragment
         android:id="@+id/navigation_movie_details_fragment"
         android:name="com.example.moviestmdb.ui_movies.moviedetails.MovieDetailsFragment"
-        android:label="MovieDetailsFragment" />
+        android:label="MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details" />
+
+    <fragment
+        android:id="@+id/navigation_discover_fragment"
+        android:name="com.example.moviestmdb.ui_movies.dicover.DiscoverFragment"
+        android:label="DiscoverFragment"
+        tools:layout="@layout/fragment_discover">
+
+        <deepLink app:uri="tmdbapp://tmdb.app/discover" />
+    </fragment>
 
 </navigation>

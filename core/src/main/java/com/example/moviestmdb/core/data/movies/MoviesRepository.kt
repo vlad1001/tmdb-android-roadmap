@@ -100,4 +100,7 @@ class MoviesRepository @Inject constructor(
 
     fun observeGeneres() = local.observeGeneres()
 
+    fun discover(page: Int,options :Map<String, String> = emptyMap()) = flow {
+        emit(remote.discover(page, options))
+    }
 }
