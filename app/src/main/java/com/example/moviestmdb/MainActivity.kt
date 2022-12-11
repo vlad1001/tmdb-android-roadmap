@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launchWhenStarted {
             firebaseAuthStateUserDataSource.getBasicUserInfo().collectLatest { result ->
-                val isSignedIn = result?.isSignedIn() ?: false
-//                val isSignedIn = true
+//                val isSignedIn = result?.isSignedIn() ?: false
+                val isSignedIn = true
                 if (!isSignedIn) {
                     navController.navigate(com.example.moviestmdb.ui_login.R.id.login_graph)
                 } else {
