@@ -27,3 +27,13 @@ annotation class NowPlaying
 @Qualifier
 @MustBeDocumented
 annotation class ApplicationScope
+
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+@MustBeDocumented
+annotation class PopularTvShows
+
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+@MustBeDocumented
+annotation class TopRatedTvShows

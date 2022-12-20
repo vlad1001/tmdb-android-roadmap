@@ -33,7 +33,7 @@ interface MovieService {
         @Query("page") page: Int
     ): Call<MovieResponse>
 
-    @GET("movie/{movie_id}/credits")
+        @GET("movie/{movie_id}/credits")
     fun getMovieCredits(
         @Path("movie_id") movieId: Int,
     ): Call<MovieCreditsResponse>
