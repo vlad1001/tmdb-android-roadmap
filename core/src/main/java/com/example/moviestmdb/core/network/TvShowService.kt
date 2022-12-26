@@ -7,12 +7,12 @@ import retrofit2.http.Query
 
 interface TvShowService {
 
-    @GET("/tv/popular")
+    @GET("tv/popular")
     fun getPopularTvShows(
         @Query("page") page: Int
     ): Call<TvShowResponse>
 
-    @GET("/tv/top_rated")
+    @GET("tv/top_rated")
     fun getTopRatedTvShows(
         @Query("page") page: Int
     ): Call<TvShowResponse>

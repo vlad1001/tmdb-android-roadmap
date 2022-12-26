@@ -38,7 +38,7 @@ class PopularMoviesAdapter(
 //                tmdbDateFormatter.formatMediumDate(popularEntry.releaseDate)
 //            }"
 
-            holder.binding.popularityBadge.progress = popularEntry.movie.popularityPrecentage
+//            holder.binding.popularityBadge.progress = popularEntry.movie.popularityPrecentage
 
             entry.movie.posterPath?.let { posterPath ->
                 Glide.with(holder.itemView)

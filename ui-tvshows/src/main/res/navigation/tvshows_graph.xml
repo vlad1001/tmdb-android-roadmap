@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/navigation_tvshows_lobby_fragment"
-        android:name="com.example.moviestmdb.ui_tvshows.TvShowsLobbyFragment"
+        android:name="com.example.moviestmdb.ui_tvshows.lobby.TvShowsLobbyFragment"
         android:label="TvShowsLobbyFragment" />
 </navigation>

@@ -43,7 +43,7 @@ class PopularMoviesCarrouselAdapter(
                     .into(holder.binding.imageView)
             }
 
-            holder.binding.popularityBadge.progress = entry.popularityPrecentage
+//            holder.binding.popularityBadge.progress = entry.popularityPrecentage
 
             holder.itemView.setOnClickListener {
                 onItemClickListener(entry.id)

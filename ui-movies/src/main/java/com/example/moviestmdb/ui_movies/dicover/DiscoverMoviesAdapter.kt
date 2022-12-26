@@ -32,7 +32,7 @@ class DiscoverMoviesAdapter(
             holder.binding.title.text = movieEntry.movie.title
             holder.binding.subtitle.text = "${movieEntry.movie.voteCount} votes"
 
-            holder.binding.popularityBadge.progress = movieEntry.movie.popularityPrecentage
+//            holder.binding.popularityBadge.progress = movieEntry.movie.popularityPrecentage
 
             entry.movie.posterPath?.let { posterPath ->
                 Glide.with(holder.itemView)
