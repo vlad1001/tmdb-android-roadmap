@@ -10,6 +10,7 @@ import java.io.IOException
 import java.net.SocketTimeoutException
 import com.example.moviestmdb.core.result.Result
 
+
 fun <T> Response<T>.bodyOrThrow(): T {
     if (!isSuccessful) throw HttpException(this)
     return body()!!
